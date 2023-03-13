@@ -2,8 +2,8 @@
 This REST API allows sending an email to one or more recipients using Sendgrid.
 
 # API Docs
-* Default API specification - http://localhost:8080/v3/api-docs
-* Swagger UI - http://localhost:8080/swagger-ui/index.html
+* Default API specification - http://localhost:8282/v3/api-docs
+* Swagger UI - http://localhost:8282/swagger-ui/index.html
 
 # App Configurations
 * apiKey: For security reasons this is read through a different file, secrets.yaml. spring:config:import: optional:secrets.yaml is used to mark this optional 
@@ -11,7 +11,7 @@ and secretes.yaml is not available to public.
 * service: Service name for any future discovery servers to use.
 * enrichApi: External api to get quote of the day.
 * fromAddress: Sendgrid registered from address.
-* filterEmailsByDomain: Toggle non Raken domain filtering.
+* filterEmailsByDomain: Toggle non blacklisted domain filtering.
 * filterDomain: Domain to filer.
 
 # Design decisions
@@ -35,19 +35,19 @@ real application, Although Factory pattern is also a candidate Strategy will giv
 
 # Start service - Default dev profile
 ```
-java -jar target/raken-notification-service-0.0.1-SNAPSHOT.jar
+java -jar target/notification-service-0.0.1-SNAPSHOT.jar
 
 ```
 NOTE - For any other specific profile use below syntax.
 ```
-java -jar -Dspring.profiles.active=xxx target/raken-notification-service-0.0.1-SNAPSHOT.jar
+java -jar -Dspring.profiles.active=xxx target/notification-service-0.0.1-SNAPSHOT.jar
 ```
 
 # Sample request
 NOTE : to minimize the client side errors all To,Cc,Bc Addresses are read as lists otherwise client may send the email lists with different delimiters.
 ```
 {
-    "subject" : "Test email from Raken app",
+    "subject" : "Test email from app",
     "content" : "Hello Dayan, Good reach out.",
     "toAddresses" : ["dkodippily@gmail.com", "1@redflag.com"],
     "ccAddresses" : ["2@redflag.com"]    
@@ -61,7 +61,7 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-    "subject" : "Test email from Raken app",
+    "subject" : "Test email from app",
     "content" : "Hello Dayan, Good reach out.",
     "toAddresses" : ["dkodippily@gmail.com", "1@redflag.com"],
     "ccAddresses" : ["2@redflag.com"]    
