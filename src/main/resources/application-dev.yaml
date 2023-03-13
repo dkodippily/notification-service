@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import: optional:secrets.yaml
+
+configurations:
+  service: email
+  enrichApi: https://zenquotes.io/api/random
+  fromAddress: dkodippily@gmail.com
+  filterEmailsByDomain: true
+  filterDomain: redflag.com
+
+springdoc:
+  swagger-ui:
+    enabled: true
