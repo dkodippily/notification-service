@@ -7,6 +7,7 @@ public class ApplicationConstants {
 
     private ApplicationConstants(){}
 
+    public static final String HEADER_MAIL_QUEUE_ID = "MAIL_QUEUE_ID";
     public static final String BASE_API_URL = "/api/v1";
     public static final String EMAIL_SERVICE_ENDPOINT = "/emails";
     public static final String ENRICH = "enrich";

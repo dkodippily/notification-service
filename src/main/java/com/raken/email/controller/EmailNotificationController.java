@@ -25,6 +25,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 
 import static com.raken.email.constant.ApplicationConstants.EMAIL_SERVICE_ENDPOINT;
+import static com.raken.email.constant.ApplicationConstants.HEADER_MAIL_QUEUE_ID;
 
 /**
  * @author Dayan Kodippily
@@ -65,7 +66,7 @@ public class EmailNotificationController extends NotificationController{
                 .buildAndExpand(MDC.get(ApplicationConstants.CORRELATION_ID))
                 .toUri();
 
-        return ResponseEntity.accepted().header("MAIL_QUEUE_ID", path.getPath()).body("Email is queued.");
+        return ResponseEntity.accepted().header(HEADER_MAIL_QUEUE_ID, path.getPath()).body("Email is queued.");
     }
 
     private void decorate(EmailDto emailDto) {

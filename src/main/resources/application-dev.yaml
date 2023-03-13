@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8282
 
 spring:
   config:
@@ -8,7 +8,7 @@ spring:
 configurations:
   service: email
   enrichApi: https://zenquotes.io/api/random
-  fromAddress: dkodippily@gmail.com
+  fromAddress: sendgrid@rakenapp.com
   filterEmailsByDomain: true
   filterDomain: redflag.com
 
