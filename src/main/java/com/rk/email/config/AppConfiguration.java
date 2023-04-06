@@ -66,4 +66,5 @@ public class AppConfiguration {
     public void setFilterEmailsByDomain(boolean filterEmailsByDomain) {
         this.filterEmailsByDomain = filterEmailsByDomain;
     }
+
 }
